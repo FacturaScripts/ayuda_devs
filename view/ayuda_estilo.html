@@ -15,6 +15,7 @@
 <div class="container bs-docs-container">
    <div class="row">
       <div class="col-md-12" role="main">
+         
          <div class="bs-docs-section">
             <h1 class="page-header" id="estilos">
                <a class="anchorjs-link " href="#estilos">
@@ -50,6 +51,82 @@
                obtendrás las respuestas más rápidamente consultándola con frecuencia.
             </p>
          </div>
+         
+         <div class="bs-docs-section">
+            <h1 class="page-header" id="estilos-css-js">
+               <a class="anchorjs-link " href="#estilos-css-js">
+                  <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+               </a>
+               Archivos CSS y JS
+            </h1>
+            <h2 id="estilos-menu-introducción">
+               <a class="anchorjs-link anchor" href="#estilos-introducción">
+                  <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+               </a>
+               Introducción
+            </h2>
+            <p class="text-justify">
+               Mediante los archivos CSS y JS podemos utilizar librerías de terceros, 
+               como por ejemplo en está explicación se hace uso de <a href="https://highlightjs.org/" target="_blank">highlight.js</a> 
+               para dar estilo visual al código de ejemplo.
+            </p>
+            <p class="text-justify">
+               La forma común a la que posiblemente tendrás costumbre de hacerlo es 
+               definiendo las siguiente líneas:
+            </p>
+<!--
+Si vas a colaborar, por favor indica este mensaje en tus porciones de código de ejemplo.
+
+En el código HTML es imprescindible hacer los siguientes reemplazar:
+<     =>    <span>&lt;</span>
+>     =>    <span>&gt;</span>
+{     =>    <span>{</span>
+}     =>    <span>}</span
+&     =>    &amp;
+Si se copia y pega el código que se quiere poner de ejemplo, y luego se selecciona
+para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
+-->
+            <pre><code>
+<span>&lt;</span>link rel="stylesheet" type="text/css" media="screen" href="' . FS_PATH . 'plugins/ayuda_devs/view/css/idea.min.css"/<span>&gt;</span>
+<span>&lt;</span>script src="' . FS_PATH . 'plugins/ayuda_devs/view/js/highlight.pack.js" type="text/javascript"<span>&gt</span><span>&lt</span>/script<span>&gt</span>
+</code></pre>
+            <p class="text-justify">
+               Pero en FacturaScripts este código puede definirse desde el propio 
+               controlador de la página mediante la función shared_extensions():
+            </p>
+            <pre><code>   public function shared_extensions(){
+      $extensiones = array(
+          array(
+              'name' => 'ayuda_highlight_js',
+              'page_from' => __CLASS__,
+              'page_to' => __CLASS__,
+              'type' => 'head',
+              'text' => '<span>&lt;</span>script src="' . FS_PATH . 'plugins/ayuda_devs/view/js/highlight.pack.js" type="text/javascript"<span>&gt</span><span>&lt</span>/script<span>&gt</span>',
+              'params' => ''
+          ),
+          array(
+              'name' => 'ayuda_highlight_css',
+              'page_from' => __CLASS__,
+              'page_to' => __CLASS__,
+              'type' => 'head',
+              'text' => '<span>&lt;</span>link rel="stylesheet" type="text/css" media="screen" href="' . FS_PATH . 'plugins/ayuda_devs/view/css/idea.min.css"/<span>&gt;</span>',
+              'params' => ''
+          )
+      );
+      foreach ($extensiones as $ext) {
+         $fsext0 = new fs_extension($ext);
+         if (!$fsext0->save()) {
+            $this->new_error_msg('Imposible guardar los datos de la extensión ' . $ext['name'] . '.');
+         }
+      }
+   }</code></pre>
+         <p class="text-justify">
+               Para utilizar está función, sólo necesitarás indicarlo desde __construct() 
+               o private_core(), añadiendo:
+         </p>
+            <pre><code>$this->shared_extensions();</code></pre>
+         </div>
+         
          <div class="bs-docs-section">
             <h1 class="page-header" id="estilos-menu">
                <a class="anchorjs-link " href="#estilos-menu">
@@ -75,31 +152,23 @@
             <p class="text-justify">
                Por ejemplo, está entrada en el menú se ha añadido simplemente con:
             </p>
-               <pre>
-                  <code class="php" data-code='php'>
-class ayuda_estilo extends fs_controller {
+            <pre><code>class ayuda_estilo extends fs_controller {
+
    public function __construct() {
       parent::__construct(__CLASS__, 'Estilo', 'Documentación', FALSE, TRUE);
    }
-}
-                  </code>
-               </pre>
+
+}</code></pre>
             <p class="text-justify">
                O incluso sería lo mismo que definirlo como:
             </p>
-            <figure class="highlight">
-               <pre>
-                  <code class="language-php" data-lang="php">
-class ayuda_estilo extends fs_controller {
+            <pre><code>class ayuda_estilo extends fs_controller {
 
    public function __construct() {
       parent::__construct(__CLASS__, 'Estilo', 'Documentación');
    }
 
-}
-                  </code>
-               </pre>
-            </figure>
+}</code></pre>
             <p class="text-justify">
                Ventajas que se descubren al leer la documentación ;)
             </p>
@@ -112,19 +181,13 @@ class ayuda_estilo extends fs_controller {
                un JSON o simplemente porqué será una página de opciones que se va
                a acceder desde otra página definida como principal.
             </p>
-            <figure class="highlight">
-               <pre>
-                  <code class="language-php" data-lang="php">
-class ayuda_estilo extends fs_controller {
+            <pre><code>class ayuda_estilo extends fs_controller {
 
    public function __construct() {
       parent::__construct(__CLASS__, 'Estilo', 'Documentación', FALSE, FALSE);
    }
 
-}
-                  </code>
-               </pre>
-            </figure>
+}</code></pre>
          </div>
          <div class="bs-docs-section">
             <h1 class="page-header" id="estilos-menu">
@@ -155,8 +218,6 @@ class ayuda_estilo extends fs_controller {
                Como regla general, se puede indicar que un título correcto debe incluir
                el siguiente bloque de código:
             </p>
-               <pre>
-                  <code class="html">
 <!--
 Si vas a colaborar, por favor indica este mensaje en tus porciones de código de ejemplo.
 
@@ -164,16 +225,17 @@ En el código HTML es imprescindible hacer los siguientes reemplazar:
 <     =>    <span>&lt;</span>
 >     =>    <span>&gt;</span>
 {     =>    <span>{</span>
-}     =>    <span>}</span>
+}     =>    <span>}</span
+&     =>    &amp;
 Si se copia y pega el código que se quiere poner de ejemplo, y luego se selecciona
 para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
 -->
-<span>&lt;</span>div class="page-header"<span>&gt;</span>
+            <pre><code><span>&lt;</span>div class="page-header"<span>&gt;</span>
     <span>&lt;</span>h1<span>&gt;</span>
         <span>&lt;</span>i class="fa fa-suitcase" aria-hidden="true"<span>&gt;</span><span>&lt;</span>/i<span>&gt;</span> Título de mi página
         <span>&lt;</span>span class="btn-group"<span>&gt;</span>
             <span>&lt;</span>div class="btn-group hidden-xs"<span>&gt;</span>
-                <span>&lt;</span>a class="btn btn-xs btn-default" href="<span<span>&gt;</span>{</span<span>&gt;</span>$fsc-<span>&gt;</span>url()<span<span>&gt;</span>}</span<span>&gt;</span>" title="Recargar la página"<span>&gt;</span>
+                <span>&lt;</span>a class="btn btn-xs btn-default" href="<span>{</span>$fsc-<span>&gt;</span>url()<span>}</span>" title="Recargar la página"<span>&gt;</span>
                     <span>&lt;</span>span class="glyphicon glyphicon-refresh"<span>&gt;</span><span>&lt;</span>/span<span>&gt;</span>
                 <span>&lt;</span>/a<span>&gt;</span>
                 <span>{</span>if condition="$fsc-<span>&gt;</span>page-<span>&gt;</span>is_default()"<span>}</span>
@@ -191,7 +253,7 @@ para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
             <span>&lt;</span>div class="btn-group text-right"<span>&gt;</span>
                 <span>&lt;</span>a href="#" id="boton_nuevo" class="btn btn-xs btn-success"<span>&gt;</span>
                     <span>&lt;</span>span class="glyphicon glyphicon-plus"<span>&gt;</span><span>&lt;</span>/span<span>&gt;</span>
-                    <span>&lt;</span>span class="hidden-xs"<span>&gt;</span>&nbsp; Nuevo<span>&lt;</span>/span<span>&gt;</span>
+                    <span>&lt;</span>span class="hidden-xs"<span>&gt;</span>&amp;nbsp; Nuevo<span>&lt;</span>/span<span>&gt;</span>
                 <span>&lt;</span>/a<span>&gt;</span>
             <span>&lt;</span>/div<span>&gt;</span>
         <span>&lt;</span>/span<span>&gt;</span>
@@ -208,9 +270,7 @@ para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
     <span>&lt;</span>p class="help-block"<span>&gt;</span>
         Pequeña explicación de que hace esta página
     <span>&lt;</span>/p<span>&gt;</span>
-<span>&lt;</span>/div<span>&gt;</span>
-                  </code>
-               </pre>
+<span>&lt;</span>/div<span>&gt;</span></code></pre>
             <p class="text-justify">
                Puede que a priori sean muchas cosas posibles a añadir, pero no siempre
                son todas realmente necesarias, ni todas añaden elementos en pantalla siempre.
@@ -235,10 +295,10 @@ para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
    </div>
 </div>
 <script>
-$(document).ready(function() {
-   $('pre code').each(function(i, block) {
-      hljs.highlightBlock(block);
+   $(document).ready(function () {
+      $('pre code').each(function (i, block) {
+         hljs.highlightBlock(block);
+      });
    });
-});
 </script>
 {include="footer"}
