@@ -44,11 +44,27 @@ class ayuda_estilo extends fs_controller {
               'params' => ''
           ),
           array(
-              'name' => 'ayuda_highlight_css',
+              'name' => 'docs_min_js',
+              'page_from' => __CLASS__,
+              'page_to' => __CLASS__,
+              'type' => 'head',
+              'text' => '<script src="' . FS_PATH . 'plugins/ayuda_devs/view/js/docs.min.js" type="text/javascript"></script>',
+              'params' => ''
+          ),
+          array(
+              'name' => 'idea_min_css',
               'page_from' => __CLASS__,
               'page_to' => __CLASS__,
               'type' => 'head',
               'text' => '<link rel="stylesheet" type="text/css" media="screen" href="' . FS_PATH . 'plugins/ayuda_devs/view/css/idea.min.css"/>',
+              'params' => ''
+          ),
+          array(
+              'name' => 'docs_min_css',
+              'page_from' => __CLASS__,
+              'page_to' => __CLASS__,
+              'type' => 'head',
+              'text' => '<link  rel="stylesheet" type="text/css" media="screen" href="' . FS_PATH . 'plugins/ayuda_devs/view/css/docs.min.css"/>',
               'params' => ''
           )
       );
