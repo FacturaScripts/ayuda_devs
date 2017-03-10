@@ -1,7 +1,7 @@
 {include="header"}
 
 <link href="plugins/ayuda_devs/view/css/docs.min.css" rel="stylesheet">
-<script src="plugins/ayuda_devs/view/js/docs.min.js"></script>
+<script src="{$fsc->get_js_location('docs.min.js')}"></script>
 
 <div class="bs-docs-header" id="content" tabindex="-1">
    <div class="container">
@@ -29,24 +29,24 @@
                Introducción
             </h2>
             <p class="text-justify">
-               Como habrás podido comprobar, FacturaScripts no dispone de unas líneas 
-               de estilo estrictamente definidas, sino que cada uno es libre de realizar 
-               lo que quiera y como quiera hacerlo. Y precisamente por eso, podrás 
-               seguir el camino que mejor se adapte a tus necesidades, por algo es 
+               Como habrás podido comprobar, FacturaScripts no dispone de unas líneas
+               de estilo estrictamente definidas, sino que cada uno es libre de realizar
+               lo que quiera y como quiera hacerlo. Y precisamente por eso, podrás
+               seguir el camino que mejor se adapte a tus necesidades, por algo es
                software libre.
             </p>
             <p class="text-justify">
                Pero por esta misma razón entre varios miembros de la
-               comunidad nos hemos propuesto disponer de ciertos criterios de forma 
-               unificada que permitan que el usuario final pueda disponer de una 
+               comunidad nos hemos propuesto disponer de ciertos criterios de forma
+               unificada que permitan que el usuario final pueda disponer de una
                interfaz más uniforme.
             </p>
             <p class="text-justify">
-               Esta guía de estilos no se ha realizado para reemplazar a la documentación 
-               oficial, sino más bien para complementarla y facilitar la incorporación 
-               de desarrolladores interesados en colaborar. Si te interesa consultarla 
-               puedes hacerlo desde la <a href="https://www.facturascripts.com/demo/doc/">Documentación de clases</a>, 
-               pero aunque creas que no te interesa la documentación, muchas veces 
+               Esta guía de estilos no se ha realizado para reemplazar a la documentación
+               oficial, sino más bien para complementarla y facilitar la incorporación
+               de desarrolladores interesados en colaborar. Si te interesa consultarla
+               puedes hacerlo desde la <a href="https://www.facturascripts.com/demo/doc/">Documentación de clases</a>,
+               pero aunque creas que no te interesa la documentación, muchas veces
                obtendrás las respuestas más rápidamente consultándola con frecuencia.
             </p>
          </div>
@@ -64,30 +64,26 @@
                Introducción
             </h2>
             <p class="text-justify">
-               El menú de FacturaScripts es de las pocas cosas que no necesitas 
-               modificar en absoluto, porqué su contenido se genera automáticamente 
+               El menú de FacturaScripts es de las pocas cosas que no necesitas
+               modificar en absoluto, porqué su contenido se genera automáticamente
                con la definición de los controladores.
             </p>
             <p class="text-justify">
-               La única forma real de modificar su apariencia/comportamiento, es 
+               La única forma real de modificar su apariencia/comportamiento, es
                haciendo un nuevo estilo, como por ejemplo hace el plugin adminlte.
             </p>
             <p class="text-justify">
                Por ejemplo, está entrada en el menú se ha añadido simplemente con:
             </p>
-            <figure class="highlight">
                <pre>
-                  <code class="language-php" data-lang="php">
+                  <code class="php" data-code='php'>
 class ayuda_estilo extends fs_controller {
-
    public function __construct() {
       parent::__construct(__CLASS__, 'Estilo', 'Documentación', FALSE, TRUE);
    }
-
 }
                   </code>
                </pre>
-            </figure>
             <p class="text-justify">
                O incluso sería lo mismo que definirlo como:
             </p>
@@ -108,12 +104,12 @@ class ayuda_estilo extends fs_controller {
                Ventajas que se descubren al leer la documentación ;)
             </p>
             <p class="text-justify">
-               Puede que te interesen más detalles de como funciona dicha función 
-               de <a href="https://www.facturascripts.com/demo/doc/class-fs_controller.html#___construct" target="blank">fs_controller</a>, puedes leerlo desde la documentación 
-               de clases. Pero de forma habitual lo que suele interesar es simplemente 
-               que una página en particular no aparezca en el menú, ya sea porqué 
-               va a utilizarse para responder a consultas por AJAX, va a devolver 
-               un JSON o simplemente porqué será una página de opciones que se va 
+               Puede que te interesen más detalles de como funciona dicha función
+               de <a href="https://www.facturascripts.com/demo/doc/class-fs_controller.html#___construct" target="blank">fs_controller</a>, puedes leerlo desde la documentación
+               de clases. Pero de forma habitual lo que suele interesar es simplemente
+               que una página en particular no aparezca en el menú, ya sea porqué
+               va a utilizarse para responder a consultas por AJAX, va a devolver
+               un JSON o simplemente porqué será una página de opciones que se va
                a acceder desde otra página definida como principal.
             </p>
             <figure class="highlight">
@@ -144,24 +140,23 @@ class ayuda_estilo extends fs_controller {
                Introducción
             </h2>
             <p class="text-justify">
-               Los títulos en FacturaScripts suelen indicar al usuario en que página 
-               se encuentran, pero habrás podido comprobar que estos títulos no 
+               Los títulos en FacturaScripts suelen indicar al usuario en que página
+               se encuentran, pero habrás podido comprobar que estos títulos no
                siempre son iguales, dependiendo de el tipo de contenido que contienen.
             </p>
             <p class="text-justify">
-               Por ejemplo, a simple vista se aprecia claramente que "Agencias de transporte" 
-               y "Albaranes" o "Facturas" son totalmente diferentes, y puede que 
-               te preguntes porqué, si ambas son cosas muy esenciales. Y la respuesta 
-               es bastante sencilla, la cantidad de datos a mostrar y la frecuencia con 
+               Por ejemplo, a simple vista se aprecia claramente que "Agencias de transporte"
+               y "Albaranes" o "Facturas" son totalmente diferentes, y puede que
+               te preguntes porqué, si ambas son cosas muy esenciales. Y la respuesta
+               es bastante sencilla, la cantidad de datos a mostrar y la frecuencia con
                la que se va a utilizar.
             </p>
             <p class="text-justify">
-               Como regla general, se puede indicar que un título correcto debe incluir 
+               Como regla general, se puede indicar que un título correcto debe incluir
                el siguiente bloque de código:
             </p>
-            <figure class="highlight">
                <pre>
-                  <code class="language-php" data-lang="php">
+                  <code class="html">
 <!--
 Si vas a colaborar, por favor indica este mensaje en tus porciones de código de ejemplo.
 
@@ -170,55 +165,54 @@ En el código HTML es imprescindible hacer los siguientes reemplazar:
 >     =>    <span>&gt;</span>
 {     =>    <span>{</span>
 }     =>    <span>}</span>
-Si se copia y pega el código que se quiere poner de ejemplo, y luego se selecciona 
+Si se copia y pega el código que se quiere poner de ejemplo, y luego se selecciona
 para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
 -->
-    <span>&lt;</span>div class="page-header"<span>&gt;</span>
-        <span>&lt;</span>h1<span>&gt;</span>
-            <span>&lt;</span>i class="fa fa-suitcase" aria-hidden="true"<span>&gt;</span><span>&lt;</span>/i<span>&gt;</span> Título de mi página
-            <span>&lt;</span>span class="btn-group"<span>&gt;</span>
-                <span>&lt;</span>div class="btn-group hidden-xs"<span>&gt;</span>
-                    <span>&lt;</span>a class="btn btn-xs btn-default" href="<span<span>&gt;</span>{</span<span>&gt;</span>$fsc-<span>&gt;</span>url()<span<span>&gt;</span>}</span<span>&gt;</span>" title="Recargar la página"<span>&gt;</span>
-                        <span>&lt;</span>span class="glyphicon glyphicon-refresh"<span>&gt;</span><span>&lt;</span>/span<span>&gt;</span>
-                    <span>&lt;</span>/a<span>&gt;</span>
-                    <span>{</span>if condition="$fsc-<span>&gt;</span>page-<span>&gt;</span>is_default()"<span>}</span>
-                    <span>&lt;</span>a class="btn btn-xs btn-default active" href="<span>{</span>$fsc-<span>&gt;</span>url()<span>}</span>&amp;default_page=FALSE" title="Desmarcar como página de inicio"<span>&gt;</span>
-                        <span>&lt;</span>span class="glyphicon glyphicon-home"<span>&gt;</span><span>&lt;</span>/span<span>&gt;</span>
-                    <span>&lt;</span>/a<span>&gt;</span>
-                    <span>{</span>else<span>}</span>
-                    <span>&lt;</span>a class="btn btn-xs btn-default" href="<span>{</span>$fsc-<span>&gt;</span>url()<span>}</span>&amp;default_page=TRUE" title="Marcar como página de inicio"<span>&gt;</span>
-                        <span>&lt;</span>span class="glyphicon glyphicon-home"<span>&gt;</span><span>&lt;</span>/span<span>&gt;</span>
-                    <span>&lt;</span>/a<span>&gt;</span>
-                    <span>{</span>/if<span<span>}</span>
-                <span>&lt;</span>/div<span>&gt;</span>
-            <span>&lt;</span>/span<span>&gt;</span>
-            <span>&lt;</span>span class="btn-group"<span>&gt;</span>
-                <span>&lt;</span>div class="btn-group text-right"<span>&gt;</span>
-                    <span>&lt;</span>a href="#" id="boton_nuevo" class="btn btn-xs btn-success"<span>&gt;</span>
-                        <span>&lt;</span>span class="glyphicon glyphicon-plus"<span>&gt;</span><span>&lt;</span>/span<span>&gt;</span>
-                        <span>&lt;</span>span class="hidden-xs"<span>&gt;</span>&nbsp; Nuevo<span>&lt;</span>/span<span>&gt;</span>
-                    <span>&lt;</span>/a<span>&gt;</span>
-                <span>&lt;</span>/div<span>&gt;</span>
-            <span>&lt;</span>/span<span>&gt;</span>
-            <span>&lt;</span>span class="btn-group"<span>&gt;</span>
-                <span>&lt;</span>div class="btn-group"<span>&gt;</span>
-                    <span>{</span>loop="$fsc-<span>&gt;</span>extensions"<span>}</span>
-                    <span>{</span>if="$value-<span>&gt;</span>type=='button'"<span>}</span>
-                    <span>&lt;</span>a href="index.php?page=<span>{</span>$value-<span>&gt;</span>from<span>}</span><span>{</span>$value-<span>&gt;</span>params<span>}</span>" class="btn btn-xs btn-default"<span>&gt;</span><span>{</span>$value-<span>&gt;</span>text<span>}</span><span>&lt;</span>/a<span>&gt;</span>
-                    <span>{</span>/if<span>}</span>
-                    <span>{</span>/loop<span>}</span>
-                <span>&lt;</span>/div<span>&gt;</span>
-            <span>&lt;</span>/span<span>&gt;</span>
-        <span>&lt;</span>/h1<span>&gt;</span>
-        <span>&lt;</span>p class="help-block"<span>&gt;</span>
-            Pequeña explicación de que hace esta página
-        <span>&lt;</span>/p<span>&gt;</span>
-    <span>&lt;</span>/div<span>&gt;</span>
+<span>&lt;</span>div class="page-header"<span>&gt;</span>
+    <span>&lt;</span>h1<span>&gt;</span>
+        <span>&lt;</span>i class="fa fa-suitcase" aria-hidden="true"<span>&gt;</span><span>&lt;</span>/i<span>&gt;</span> Título de mi página
+        <span>&lt;</span>span class="btn-group"<span>&gt;</span>
+            <span>&lt;</span>div class="btn-group hidden-xs"<span>&gt;</span>
+                <span>&lt;</span>a class="btn btn-xs btn-default" href="<span<span>&gt;</span>{</span<span>&gt;</span>$fsc-<span>&gt;</span>url()<span<span>&gt;</span>}</span<span>&gt;</span>" title="Recargar la página"<span>&gt;</span>
+                    <span>&lt;</span>span class="glyphicon glyphicon-refresh"<span>&gt;</span><span>&lt;</span>/span<span>&gt;</span>
+                <span>&lt;</span>/a<span>&gt;</span>
+                <span>{</span>if condition="$fsc-<span>&gt;</span>page-<span>&gt;</span>is_default()"<span>}</span>
+                <span>&lt;</span>a class="btn btn-xs btn-default active" href="<span>{</span>$fsc-<span>&gt;</span>url()<span>}</span>&amp;default_page=FALSE" title="Desmarcar como página de inicio"<span>&gt;</span>
+                    <span>&lt;</span>span class="glyphicon glyphicon-home"<span>&gt;</span><span>&lt;</span>/span<span>&gt;</span>
+                <span>&lt;</span>/a<span>&gt;</span>
+                <span>{</span>else<span>}</span>
+                <span>&lt;</span>a class="btn btn-xs btn-default" href="<span>{</span>$fsc-<span>&gt;</span>url()<span>}</span>&amp;default_page=TRUE" title="Marcar como página de inicio"<span>&gt;</span>
+                    <span>&lt;</span>span class="glyphicon glyphicon-home"<span>&gt;</span><span>&lt;</span>/span<span>&gt;</span>
+                <span>&lt;</span>/a<span>&gt;</span>
+                <span>{</span>/if<span<span>}</span>
+            <span>&lt;</span>/div<span>&gt;</span>
+        <span>&lt;</span>/span<span>&gt;</span>
+        <span>&lt;</span>span class="btn-group"<span>&gt;</span>
+            <span>&lt;</span>div class="btn-group text-right"<span>&gt;</span>
+                <span>&lt;</span>a href="#" id="boton_nuevo" class="btn btn-xs btn-success"<span>&gt;</span>
+                    <span>&lt;</span>span class="glyphicon glyphicon-plus"<span>&gt;</span><span>&lt;</span>/span<span>&gt;</span>
+                    <span>&lt;</span>span class="hidden-xs"<span>&gt;</span>&nbsp; Nuevo<span>&lt;</span>/span<span>&gt;</span>
+                <span>&lt;</span>/a<span>&gt;</span>
+            <span>&lt;</span>/div<span>&gt;</span>
+        <span>&lt;</span>/span<span>&gt;</span>
+        <span>&lt;</span>span class="btn-group"<span>&gt;</span>
+            <span>&lt;</span>div class="btn-group"<span>&gt;</span>
+                <span>{</span>loop="$fsc-<span>&gt;</span>extensions"<span>}</span>
+                <span>{</span>if="$value-<span>&gt;</span>type=='button'"<span>}</span>
+                <span>&lt;</span>a href="index.php?page=<span>{</span>$value-<span>&gt;</span>from<span>}</span><span>{</span>$value-<span>&gt;</span>params<span>}</span>" class="btn btn-xs btn-default"<span>&gt;</span><span>{</span>$value-<span>&gt;</span>text<span>}</span><span>&lt;</span>/a<span>&gt;</span>
+                <span>{</span>/if<span>}</span>
+                <span>{</span>/loop<span>}</span>
+            <span>&lt;</span>/div<span>&gt;</span>
+        <span>&lt;</span>/span<span>&gt;</span>
+    <span>&lt;</span>/h1<span>&gt;</span>
+    <span>&lt;</span>p class="help-block"<span>&gt;</span>
+        Pequeña explicación de que hace esta página
+    <span>&lt;</span>/p<span>&gt;</span>
+<span>&lt;</span>/div<span>&gt;</span>
                   </code>
                </pre>
-            </figure>
             <p class="text-justify">
-               Puede que a priori sean muchas cosas posibles a añadir, pero no siempre 
+               Puede que a priori sean muchas cosas posibles a añadir, pero no siempre
                son todas realmente necesarias, ni todas añaden elementos en pantalla siempre.
             </p>
             <p class="text-justify">
@@ -226,13 +220,13 @@ para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
             </p>
             <ul>
                <li><b>Icono + título:</b><br>El título siempre ayuda a que el usuario tenga claro donde está.</li>
-               <li><b>Grupo de botones: Recargar, marcar/desmarcar cómo página de inicio.</b><br>Una página que se consulte poco no es necesario que pueda establecerse 
+               <li><b>Grupo de botones: Recargar, marcar/desmarcar cómo página de inicio.</b><br>Una página que se consulte poco no es necesario que pueda establecerse
                   como página de inicio. Pero sin embargo si puede ser conveniente poder recargarla o incluso volver atrás.</li>
                <li><b>Grupo de botones: Botón con funcionalidad "Nuevo".</b><br>Formulario para introducir datos para la página.</li>
-               <li><b>Grupo de botones: Carga extensiones de terceros.</b><br>La carga de extensiones de terceros, muchas veces no está añadido en 
-                  plugins de algunos desarrolladores, y muchas veces es porqué no se le ve 
-                  sentido o utilidad, pero el simple hecho de añadir ese código, permitirá a 
-                  otros poder interactuar con tu página de formas que quizás no contemplaste, 
+               <li><b>Grupo de botones: Carga extensiones de terceros.</b><br>La carga de extensiones de terceros, muchas veces no está añadido en
+                  plugins de algunos desarrolladores, y muchas veces es porqué no se le ve
+                  sentido o utilidad, pero el simple hecho de añadir ese código, permitirá a
+                  otros poder interactuar con tu página de formas que quizás no contemplaste,
                   ofreciéndole un valor añadido.</li>
                <li><b>Bloque de ayuda: Descripción para el usuario.</b><br>Un breve resumen para que el usuario entienda mejor para que sirve la página.</li>
             </ul>
@@ -240,5 +234,11 @@ para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
       </div>
    </div>
 </div>
-
+<script>
+$(document).ready(function() {
+   $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+   });
+});
+</script>
 {include="footer"}

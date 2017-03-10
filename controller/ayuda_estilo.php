@@ -22,6 +22,41 @@ class ayuda_estilo extends fs_controller {
 
    public function __construct() {
       parent::__construct(__CLASS__, 'Estilo', 'Documentación', FALSE, TRUE);
+      $this->shared_extensions();
    }
 
+   protected function private_core() {
+
+   }
+
+   protected function public_core() {
+
+   }
+
+   public function shared_extensions(){
+      $extensiones = array(
+          array(
+              'name' => 'ayuda_highlight_js',
+              'page_from' => __CLASS__,
+              'page_to' => __CLASS__,
+              'type' => 'head',
+              'text' => '<script src="' . FS_PATH . 'plugins/ayuda_devs/view/js/highlight.pack.js" type="text/javascript"></script>',
+              'params' => ''
+          ),
+          array(
+              'name' => 'ayuda_highlight_css',
+              'page_from' => __CLASS__,
+              'page_to' => __CLASS__,
+              'type' => 'head',
+              'text' => '<link rel="stylesheet" type="text/css" media="screen" href="' . FS_PATH . 'plugins/ayuda_devs/view/css/idea.min.css"/>',
+              'params' => ''
+          )
+      );
+      foreach ($extensiones as $ext) {
+         $fsext0 = new fs_extension($ext);
+         if (!$fsext0->save()) {
+            $this->new_error_msg('Imposible guardar los datos de la extensión ' . $ext['name'] . '.');
+         }
+      }
+   }
 }
