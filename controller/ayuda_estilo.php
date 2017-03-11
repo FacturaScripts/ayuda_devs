@@ -66,6 +66,14 @@ class ayuda_estilo extends fs_controller {
               'type' => 'head',
               'text' => '<link  rel="stylesheet" type="text/css" media="screen" href="' . FS_PATH . 'plugins/ayuda_devs/view/css/docs.min.css"/>',
               'params' => ''
+          ),
+          array(
+              'name' => 'affix_css',
+              'page_from' => __CLASS__,
+              'page_to' => __CLASS__,
+              'type' => 'head',
+              'text' => '<link  rel="stylesheet" type="text/css" media="screen" href="' . FS_PATH . 'plugins/ayuda_devs/view/css/affix.css"/>',
+              'params' => ''
           )
       );
       foreach ($extensiones as $ext) {

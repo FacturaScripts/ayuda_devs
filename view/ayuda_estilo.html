@@ -1,6 +1,6 @@
 {include="header"}
 
-<div class="bs-docs-header" id="content" tabindex="-1">
+<div class="bs-docs-header" id="top" tabindex="-1">
    <div class="container">
       <h1>Guías de estilo</h1>
       <p>
@@ -11,15 +11,15 @@
 
 <div class="container bs-docs-container">
    <div class="row">
-      <div class="col-md-12" role="main">
-         
+      <div class="col-md-9" role="main">
+
          <div class="bs-docs-section">
             <h1 class="page-header" id="estilos">
                <a class="anchorjs-link" href="#estilos"></a>
                Estilos
             </h1>
-            <h2 id="estilos-introducción">
-               <a class="anchorjs-link" href="#estilos-introducción"></a>
+            <h2 id="estilos-introduccion">
+               <a class="anchorjs-link" href="#estilos-introduccion"></a>
                Introducción
             </h2>
             <p class="text-justify">
@@ -44,14 +44,14 @@
                obtendrás las respuestas más rápidamente consultándola con frecuencia.
             </p>
          </div>
-         
+
          <div class="bs-docs-section">
             <h1 class="page-header" id="estilos-css-js">
                <a class="anchorjs-link" href="#estilos-css-js"></a>
                Archivos CSS y JS
             </h1>
-            <h2 id="estilos-menu-introducción">
-               <a class="anchorjs-link" href="#estilos-introducción"></a>
+            <h2 id="estilos-css-js-introduccion">
+               <a class="anchorjs-link" href="#estilos-css-js-introduccion"></a>
                Introducción
             </h2>
             <p class="text-justify">
@@ -63,18 +63,18 @@
                La forma común a la que posiblemente tendrás costumbre de hacerlo es 
                definiendo las siguiente líneas:
             </p>
-<!--
-Si vas a colaborar, por favor indica este mensaje en tus porciones de código de ejemplo.
-
-En el código HTML es imprescindible hacer los siguientes reemplazar:
-<     =>    <span>&lt;</span>
->     =>    <span>&gt;</span>
-{     =>    <span>{</span>
-}     =>    <span>}</span
-&     =>    &amp;
-Si se copia y pega el código que se quiere poner de ejemplo, y luego se selecciona
-para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
--->
+            <!--
+            Si vas a colaborar, por favor indica este mensaje en tus porciones de código de ejemplo.
+            
+            En el código HTML es imprescindible hacer los siguientes reemplazar:
+            <     =>    <span>&lt;</span>
+            >     =>    <span>&gt;</span>
+            {     =>    <span>{</span>
+            }     =>    <span>}</span
+            &     =>    &amp;
+            Si se copia y pega el código que se quiere poner de ejemplo, y luego se selecciona
+            para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
+            -->
             <pre><code>
 <span>&lt;</span>link rel="stylesheet" type="text/css" media="screen" href="' . FS_PATH . 'plugins/ayuda_devs/view/css/idea.min.css"/<span>&gt;</span>
 <span>&lt;</span>script src="' . FS_PATH . 'plugins/ayuda_devs/view/js/highlight.pack.js" type="text/javascript"<span>&gt</span><span>&lt</span>/script<span>&gt</span>
@@ -109,20 +109,20 @@ para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
          }
       }
    }</code></pre>
-         <p class="text-justify">
+            <p class="text-justify">
                Para utilizar está función, sólo necesitarás indicarlo desde __construct() 
                o private_core(), añadiendo:
-         </p>
+            </p>
             <pre><code>$this->shared_extensions();</code></pre>
          </div>
-         
+
          <div class="bs-docs-section">
             <h1 class="page-header" id="estilos-menu">
                <a class="anchorjs-link" href="#estilos-menu"></a>
                Menú
             </h1>
-            <h2 id="estilos-menu-introducción">
-               <a class="anchorjs-link" href="#estilos-introducción"></a>
+            <h2 id="estilos-menu-introduccion">
+               <a class="anchorjs-link" href="#estilos-introduccion"></a>
                Introducción
             </h2>
             <p class="text-justify">
@@ -176,11 +176,11 @@ para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
          </div>
          <div class="bs-docs-section">
             <h1 class="page-header" id="estilos-menu">
-               <a class="anchorjs-link" href="#estilos-menu"></a>
+               <a class="anchorjs-link" href="#estilos-titulos"></a>
                Títulos
             </h1>
-            <h2 id="estilos-menu-introducción">
-               <a class="anchorjs-link" href="#estilos-introducción"></a>
+            <h2 id="estilos-titulos-introduccion">
+               <a class="anchorjs-link" href="#estilos-titulos-introduccion"></a>
                Introducción
             </h2>
             <p class="text-justify">
@@ -199,18 +199,18 @@ para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
                Como regla general, se puede indicar que un título correcto debe incluir
                el siguiente bloque de código:
             </p>
-<!--
-Si vas a colaborar, por favor indica este mensaje en tus porciones de código de ejemplo.
-
-En el código HTML es imprescindible hacer los siguientes reemplazar:
-<     =>    <span>&lt;</span>
->     =>    <span>&gt;</span>
-{     =>    <span>{</span>
-}     =>    <span>}</span
-&     =>    &amp;
-Si se copia y pega el código que se quiere poner de ejemplo, y luego se selecciona
-para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
--->
+            <!--
+            Si vas a colaborar, por favor indica este mensaje en tus porciones de código de ejemplo.
+            
+            En el código HTML es imprescindible hacer los siguientes reemplazar:
+            <     =>    <span>&lt;</span>
+            >     =>    <span>&gt;</span>
+            {     =>    <span>{</span>
+            }     =>    <span>}</span
+            &     =>    &amp;
+            Si se copia y pega el código que se quiere poner de ejemplo, y luego se selecciona
+            para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
+            -->
             <pre><code><span>&lt;</span>div class="page-header"<span>&gt;</span>
     <span>&lt;</span>h1<span>&gt;</span>
         <span>&lt;</span>i class="fa fa-suitcase" aria-hidden="true"<span>&gt;</span><span>&lt;</span>/i<span>&gt;</span> Título de mi página
@@ -273,13 +273,63 @@ para reemplazar dentro de la selección esas 4 cosas, el código no se rompe.
             </ul>
          </div>
       </div>
+      <div class="col-md-3" role="complementary">
+         <nav class="bs-docs-sidebar hidden-print hidden-sm hidden-xs affix-top" id="scrollSpy">
+            <ul class="nav bs-docs-sidenav">
+               <li>
+                  <a href="#estilos">Estilos</a>
+                  <ul class="nav">
+                     <li>
+                        <a href="#estilos-introduccion">Introducción</a>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#estilos-css-js">Archivos CSS y JS</a>
+                  <ul class="nav">
+                     <li>
+                        <a href="#estilos-css-js-introduccion">Introducción</a>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#estilos-menu">Menú</a>
+                  <ul class="nav">
+                     <li>
+                        <a href="#estilos-menu-introduccion">Introducción</a>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#estilos-titulos">Títulos</a>
+                  <ul class="nav">
+                     <li>
+                        <a href="#estilos-titulos-introduccion">Introducción</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+            <a href="#top" class="back-to-top"> Volver arriba </a>
+         </nav>
+      </div>
    </div>
 </div>
 <script>
    $(document).ready(function () {
+
+      $("#scrollSpy").affix({
+         offset: {
+            top: $("#top").outerHeight(true) + 10,
+            bottom: function () {
+               return (this.bottom = $('.footer').outerHeight(true))
+            }
+         }
+      });
+
       $('pre code').each(function (i, block) {
          hljs.highlightBlock(block);
       });
    });
 </script>
+
 {include="footer"}
